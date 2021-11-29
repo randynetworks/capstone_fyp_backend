@@ -1,10 +1,12 @@
-'use strict';
-
 module.exports = (app) => {
-  let json = require('../controller/controller');
+  let home = require('../controller/HomeController');
+  let passion = require('../controller/PassionController');
 
-  app.route('/').get(json.index);
-  app.route('/api/v1/').get(json.index);
-  app.route('/api/v1/passions').get(json.getAllPassion);
-  app.route('/api/v1/passions/:id').get(json.getPassion);
+  // Home Route
+  app.route('/').get(home.index);
+  app.route('/api/v1/').get(home.index);
+
+  // Passion
+  app.route('/api/v1/passions').get(passion.getAllPassion);
+  app.route('/api/v1/passions/:id').get(passion.getPassion);
 };
