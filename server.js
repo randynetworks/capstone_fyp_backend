@@ -11,5 +11,6 @@ let routes = require('./router/routes');
 routes(app);
 
 app.listen(3000, () => {
-  console.log(`Server started on 3000`);
+  console.log(`Server started on http://localhost:3000`, '\n');
+  console.log('=======================================');
 });
