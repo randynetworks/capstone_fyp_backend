@@ -1,0 +1,22 @@
+{
+  "name": "backend_fyp",
+  "version": "1.0.0",
+  "description": "Backend untuk FYP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randynetworks/capstone_fyp_backend.git"
+  },
+  "keywords": [
+    "RestAPI"
+  ],
+  "author": "randynetworks, nurfadhilah1699",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/randynetworks/capstone_fyp_backend/issues"
+  },
+  "homepage": "https://github.com/randynetworks/capstone_fyp_backend#readme"
+}
