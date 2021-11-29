@@ -6,4 +6,5 @@ module.exports = (app) => {
   app.route('/').get(json.index);
   app.route('/api/v1/').get(json.index);
   app.route('/api/v1/passions').get(json.getAllPassion);
+  app.route('/api/v1/passions/:id').get(json.getPassion);
 };

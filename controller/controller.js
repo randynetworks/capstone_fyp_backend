@@ -17,3 +17,19 @@ exports.getAllPassion = (req, res) => {
     }
   });
 };
+
+// Menampilkan 1 passion
+exports.getPassion = (req, res) => {
+  let id = req.params.id;
+  connection.query(
+    `SELECT * FROM passions WHERE id = ?`,
+    [id],
+    (err, rows, field) => {
+      if (err) {
+        connection.log(err);
+      } else {
+        response.ok(rows, res);
+      }
+    }
+  );
+};
