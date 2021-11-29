@@ -9,3 +9,4 @@ exports.ok = function (val, res) {
   res.json(data);
   res.end();
 };
+
