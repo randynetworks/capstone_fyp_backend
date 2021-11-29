@@ -27,3 +27,20 @@ exports.getPassion = (req, res) => {
     }
   );
 };
+
+// Tambah Passion
+exports.storePassion = (req, res) => {
+  let name = req.body.name;
+
+  connection.query(
+    'INSERT INTO passions (name) VALUES (?)',
+    [name],
+    (err, rows, field) => {
+      if (err) {
+        connection.log(err);
+      } else {
+        response.ok('Berhasil Menambahkan Data!', res);
+      }
+    }
+  );
+};
