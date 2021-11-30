@@ -15,14 +15,28 @@ exports.getAllPassion = (req, res) => {
 // Menampilkan 1 passion
 exports.getPassion = (req, res) => {
   let id = req.params.id;
+  let datas;
   connection.query(
-    `SELECT * FROM passions WHERE id = ?`,
+    `SELECT id, username, name, url, url_image, description FROM platforms WHERE passion_id = ?`,
     [id],
     (err, rows, field) => {
       if (err) {
         console.log(err);
       } else {
-        response.ok(rows, res);
+        datas = { platforms: rows };
+      }
+    }
+  );
+  connection.query(
+    `SELECT name FROM passions WHERE id = ?`,
+    [id],
+    (err, rows, field) => {
+      if (err) {
+        console.log(err);
+      } else {
+        let passion = { passion: rows };
+        datas = { ...passion, ...datas };
+        response.ok(datas, res);
       }
     }
   );
@@ -66,11 +80,15 @@ exports.updatePassion = (req, res) => {
 exports.destroyPassion = (req, res) => {
   let id = req.body.id;
 
-  connection.query('DELETE FROM passions WHERE id=?', [id], (err, row, field) => {
-    if (err) {
-      console.log(err);
-    } else {
-      response.ok('Success Deleted Data!', res);
+  connection.query(
+    'DELETE FROM passions WHERE id=?',
+    [id],
+    (err, row, field) => {
+      if (err) {
+        console.log(err);
+      } else {
+        response.ok('Success Deleted Data!', res);
+      }
     }
-  });
+  );
 };
