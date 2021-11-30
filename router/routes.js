@@ -1,6 +1,7 @@
 module.exports = (app) => {
   let home = require('../controller/HomeController');
   let passion = require('../controller/PassionController');
+  let platform = require('../controller/PlatformController');
 
   // Home Route
   app.route('/').get(home.index);
@@ -12,4 +13,11 @@ module.exports = (app) => {
   app.route('/api/v1/passions').post(passion.storePassion);
   app.route('/api/v1/passions').put(passion.updatePassion);
   app.route('/api/v1/passions').delete(passion.destroyPassion);
+
+  // Platforms
+  app.route('/api/v1/platforms').get(platform.getAllPlatform);
+  app.route('/api/v1/platforms/:id').get(platform.getPlatform);
+  app.route('/api/v1/platforms').post(platform.storePlatform);
+  app.route('/api/v1/platforms').put(platform.updatePlatform);
+  app.route('/api/v1/platforms').delete(platform.destroyPlatform);
 };

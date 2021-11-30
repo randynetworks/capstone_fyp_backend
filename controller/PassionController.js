@@ -39,7 +39,7 @@ exports.storePassion = (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        response.ok('Berhasil Menambahkan Data!', res);
+        response.ok('Success added Data!', res);
       }
     }
   );
@@ -57,7 +57,7 @@ exports.updatePassion = (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        response.ok('Berhasil Update Data!', res);
+        response.ok('Success Updated Data!', res);
       }
     }
   );
@@ -70,7 +70,7 @@ exports.destroyPassion = (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      response.ok('Berhasil Delete Data!', res);
+      response.ok('Success Deleted Data!', res);
     }
   });
 };
