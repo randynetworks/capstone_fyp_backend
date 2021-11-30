@@ -1,6 +1,10 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
+require('dotenv').config();
+
+let port = process.env.PORT || 3000;
+let web = process.env.WEB;
 
 // CORS
 app.use(function (req, res, next) {
@@ -20,7 +24,7 @@ app.use(bodyParser.json());
 let routes = require('./router/routes');
 routes(app);
 
-app.listen(3000, () => {
-  console.log(`Server started on http://localhost:3000`, '\n');
+app.listen(port, () => {
+  console.log(`Server started on ${web} port ${process.env.PORT}`, '\n');
   console.log('=======================================');
 });
