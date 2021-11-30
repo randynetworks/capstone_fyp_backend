@@ -28,6 +28,37 @@ exports.getPlatform = (req, res) => {
   );
 };
 
+// Menampilkan comment platform
+exports.getPlatformComments = (req, res) => {
+  let id = req.params.id;
+  let datas;
+  connection.query(
+    `SELECT name, url_image FROM platforms WHERE id = ?`,
+    [id],
+    (err, rows, field) => {
+      if (err) {
+        console.log(err);
+      } else {
+        datas = { platform: rows };
+      }
+    }
+  );
+  connection.query(
+    `SELECT * FROM comments WHERE platform_id = ?`,
+    [id],
+    (err, rows, field) => {
+      if (err) {
+        console.log(err);
+      } else {
+        let comments = { comments: rows };
+        datas = { ...datas, ...comments };
+
+        response.ok(datas, res);
+      }
+    }
+  );
+};
+
 // Tambah Platform
 exports.storePlatform = (req, res) => {
   let username = req.body.username;
