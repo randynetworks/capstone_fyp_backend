@@ -6,7 +6,7 @@ module.exports = (app) => {
 
   // Home Route
   app.route('/').get(home.index);
-  app.route('/api/v1/').get(home.index);
+  app.route('/api/v1').get(home.index);
 
   // Passion
   app.route('/api/v1/passions').get(passion.getAllPassion);

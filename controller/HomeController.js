@@ -1,5 +1,6 @@
 let response = require('../res');
+var path = require('path');
 
 exports.index = (req, res) => {
-  response.ok('Welcome to Free API Access!', res);
+  res.sendFile(path.resolve('index.html'));
 };
